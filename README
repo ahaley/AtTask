@@ -1,3 +1,13 @@
 .NET AtTask Class Library
 
+To use this class library include reference into your project and
+create the configuration file attask.config with the appropriate
+AtTask credentials.
+
+<?xml version="1.0"?>
+<appSettings>
+  <add key="Username" value="<USERNAME>" />
+  <add key="Password" value="<PASSWORD>" />
+  <add key="AtTaskUrl" value="https://<DOMAIN>.attask-ondemand.com/attask/api/" />
+</appSettings>
 
