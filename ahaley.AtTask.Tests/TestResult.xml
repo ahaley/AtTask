@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\CBM.AtTask.Test.csproj" total="24" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-06-15" time="14:13:04">
+  <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5456" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5.10\bin\net-2.0" machine-name="MEG" user="ahaley" user-domain="Meg" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Test Project" name="C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\CBM.AtTask.Test.csproj" executed="True" result="Success" success="True" time="3.152" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\bin\Debug\CBM.AtTask.Test.dll" executed="True" result="Success" success="True" time="2.591" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="ExpenseAdapterTest" executed="True" result="Success" success="True" time="1.561" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.ExpenseAdapterTest.Test_Expense" executed="True" result="Success" success="True" time="1.545" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="FilterBuilderTest" executed="True" result="Success" success="True" time="0.187" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Builder_Constructs_Proper_Date_Greater_Than_Operation" executed="True" result="Success" success="True" time="0.062" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Builder_Constructs_Proper_Date_Less_Than_Operation" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Builder_Constructs_Proper_Date_Range_Operation" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Builder_Handles_Filter_Composition_Correctly" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Builders_Should_Be_Equal_If_Filters_Match" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Builders_Should_Not_Be_Equal_If_Filters_Do_Not_Match" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.ContainsDateRange_Will_Return_False_If_Date_Range_Doesnt_Exist" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.ContainsDateRange_Will_Return_True_If_Date_Range_Exists" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.FieldEquals_With_DateTime_Produces_AtTask_Date_String" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Given_Date_Equality_Date_Range_Will_Start_Week_Prior" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Given_Only_EndDate_StartDate_Extent_Is_Week_Prior" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Given_Two_Date_Equalities_Start_And_End_Date_Are_Extents" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="CBM.AtTask.Test.FilterBuilderTest.Single_Field_Equals_Contructs_Correct_Filter" executed="True" result="Success" success="True" time="0.016" asserts="2" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="GatewayTest" executed="True" result="Success" success="True" time="0.000" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.GatewayTest.TestMethod1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RestFilterBuilderTest" executed="True" result="Success" success="True" time="0.000" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.RestFilterBuilderTest.TestMethod1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TimesheetAdapterTest" executed="True" result="Success" success="True" time="0.406" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.TimesheetAdapterTest.GetPayroll_Calls_Gateway_With_Correct_Args" executed="True" result="Success" success="True" time="0.109" asserts="2" />
+              <test-case name="CBM.AtTask.Test.TimesheetAdapterTest.GetPayrollPeriod_Combines_Individual_Weeks" executed="True" result="Success" success="True" time="0.265" asserts="3" />
+              <test-case name="CBM.AtTask.Test.TimesheetAdapterTest.GetPayrollPeriodEnding_Calls_Gateway_With_Correct_Args" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+              <test-case name="CBM.AtTask.Test.TimesheetAdapterTest.GetPayrollWeekEnding_Calls_Gateway_With_Correct_Args" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TimesheetMapperTest" executed="True" result="Success" success="True" time="0.312" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.TimesheetMapperTest.Expense_Based_Values_Map_InCharge_Correctly" executed="True" result="Success" success="True" time="0.265" asserts="1" />
+              <test-case name="CBM.AtTask.Test.TimesheetMapperTest.Holiday_Value_Is_Mapped_To_Payroll" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CBM.AtTask.Test.TimesheetMapperTest.PTO_Value_Is_Mapped_To_Payroll" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TimesheetRepositoryTest" executed="True" result="Success" success="True" time="0.031" asserts="0">
+            <results>
+              <test-case name="CBM.AtTask.Test.TimesheetRepositoryTest.GetPayrollPeriod_Combines_Individual_Weeks" executed="True" result="Success" success="True" time="0.031" asserts="3" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

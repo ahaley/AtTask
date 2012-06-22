@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Integration\CBM.AtTask.Integration.csproj</TopNode>
+  <SelectedNode>[0-1015]CBM.AtTask.Integration.NiemeyerAdapterTest.GetPayrollReport_For_Drecksage("2011-3-27")</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Integration\CBM.AtTask.Integration.csproj" Expanded="true" />
+    <Node UniqueName="[0-1036]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Integration\bin\Debug\CBM.AtTask.Integration.dll" Expanded="true" />
+    <Node UniqueName="[0-1034]CBM.AtTask.Integration.ExpenseXmlGenerator" Expanded="true" />
+    <Node UniqueName="[0-1026]CBM.AtTask.Integration.GatewayTest" Expanded="true" />
+    <Node UniqueName="[0-1005]CBM.AtTask.Integration.NiemeyerAdapterTest" Expanded="true" />
+    <Node UniqueName="[0-1014]CBM.AtTask.Integration.NiemeyerAdapterTest.GetPayrollReport_For_Drecksage" Expanded="true" />
+    <Node UniqueName="[0-1011]CBM.AtTask.Integration.NiemeyerAdapterTest.PayrollReport_For_Week_Drecksage" Expanded="true" />
+    <Node UniqueName="[0-1017]CBM.AtTask.Integration.NiemeyerAdapterTest.Verify_Mileage" Expanded="true" />
+    <Node UniqueName="[0-1021]CBM.AtTask.Integration.NiemeyerAdapterTest.Verify_Mileage_Per_Period" Expanded="true" />
+    <Node UniqueName="[0-1031]CBM.AtTask.Integration.NiemeyerRepositoryTest" Expanded="true" />
+    <Node UniqueName="[0-1000]CBM.AtTask.Integration.TimesheetAdapterTest" Expanded="true" />
+    <Node UniqueName="[0-1024]CBM.AtTask.Integration.TimesheetXmlGenerator" Expanded="true" />
+  </Nodes>
+</VisualState>

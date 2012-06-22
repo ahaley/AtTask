@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="true">
+  <TopNode>[0-1000]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\CBM.AtTask.Test.csproj</TopNode>
+  <SelectedNode>[0-1000]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\CBM.AtTask.Test.csproj</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\CBM.AtTask.Test.csproj" Checked="true" />
+    <Node UniqueName="[0-1031]C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Test\bin\Debug\CBM.AtTask.Test.dll" Expanded="true" />
+    <Node UniqueName="[0-1029]CBM.AtTask.Test.ExpenseAdapterTest" Expanded="true" />
+    <Node UniqueName="[0-1030]CBM.AtTask.Test.ExpenseAdapterTest.Test_Expense" Checked="true" />
+    <Node UniqueName="[0-1009]CBM.AtTask.Test.FilterBuilderTest" Expanded="true" />
+    <Node UniqueName="[0-1023]CBM.AtTask.Test.GatewayTest" Expanded="true" />
+    <Node UniqueName="[0-1007]CBM.AtTask.Test.RestFilterBuilderTest" Expanded="true" />
+    <Node UniqueName="[0-1002]CBM.AtTask.Test.TimesheetAdapterTest" Expanded="true" />
+    <Node UniqueName="[0-1025]CBM.AtTask.Test.TimesheetMapperTest" Expanded="true" />
+    <Node UniqueName="[0-1000]CBM.AtTask.Test.TimesheetRepositoryTest" Expanded="true" />
+  </Nodes>
+</VisualState>

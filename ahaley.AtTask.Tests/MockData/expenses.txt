@@ -1,0 +1,34 @@
+{
+"data": [
+  {
+  "ID": "4d8cb6ee000c6d0820ca981bfebc8c20",
+  "objCode": "EXPNS",
+  "actualUnitAmount": 2,
+  "parameterValues": {
+  "DE:Contractor Company": "NA",
+  "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
+  "expenseTypeID": "9d3c90342fe3fa2ae040007f01002426"},
+  {
+  "ID": "4d8cb55f000c534aeaa6ff93dd4dc8c1",
+  "objCode": "EXPNS",
+  "actualUnitAmount": 2,
+  "parameterValues": {
+  "DE:Contractor Company": "NA",
+  "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
+  "expenseTypeID": "9d3c90342fe3fa2ae040007f01002426"},
+  {
+  "ID": "4d8cb713000c6dd80f69cdc498e0c6fe",
+  "objCode": "EXPNS",
+  "actualUnitAmount": 1,
+  "parameterValues": {
+  "DE:Contractor Company": "NA",
+  "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
+  "expenseTypeID": "9d3c90342fe3fa2ae040007f01002426"},
+  {
+  "ID": "4d8600d4000017f7699affdf7b2cee6f",
+  "objCode": "EXPNS",
+  "actualUnitAmount": 1,
+  "parameterValues": {
+  "DE:Contractor Company": "NA",
+  "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
+  "expenseTypeID": "9d3c90342fe3fa2ae040007f01002426"}]}

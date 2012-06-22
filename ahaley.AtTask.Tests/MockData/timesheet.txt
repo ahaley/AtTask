@@ -1,0 +1,145 @@
+{ "data": {
+"ID": "9d3c81203f3ecebbe040007f01002438",
+"objCode": "TSHET",
+"userID": "9d3c8120a643cebbe040007f01002438",
+"regularHours": 40,
+"hours": [
+{
+"ID": "9d3cae77622cc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7762abc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7762ddc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7792fcc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 2,
+"hourTypeID": "afee9458f60b5f083f309ca9466f4101"},
+{
+"ID": "9d3cae779729c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 8,
+"hourTypeID": "9d3c6e51ed444d35e040007f0100243c"},
+{
+"ID": "9d3cae78340ec90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae787fe0c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae78f52ec90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae79273dc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "c70e37e20284e93dd01420db7664c05d"},
+{
+"ID": "9d3cae79518dc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 8,
+"hourTypeID": "afee9458f60b5f083f309ca9466f4101"},
+{
+"ID": "9d3cae795c37c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7961fcc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae79aecbc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae79be3dc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7a3f3ec90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "c70e37e20284e93dd01420db7664c05d"},
+{
+"ID": "9d3cae7a58f5c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7a6050c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7aaaf2c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7aadb1c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "c70e37e20284e93dd01420db7664c05d"},
+{
+"ID": "9d3cae7a45fdc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae7794eec90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae77621fc90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 4,
+"hourTypeID": "afee9458f60b5f083f309ca9466f4101"},
+{
+"ID": "9d3cae7817c8c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 0.5,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"},
+{
+"ID": "9d3cae798d60c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "afee9458f60b5f083f309ca9466f4101"},
+{
+"ID": "9d3cae7a9cc4c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "c70e37e20284e93dd01420db7664c05d"},
+{
+"ID": "9d3cae79bb34c90ce040007f0100241e",
+"objCode": "HOUR",
+"hours": 1,
+"hourTypeID": "ca57688b54c3a0375c408f3ccf0af28b"}],
+"endDate": "2010-12-26T02:00:00:000-0500",
+"overtimeHours": 0,
+"totalHours": 40,
+"user": {
+"ID": "9d3c8120a643cebbe040007f01002438",
+"name": "Ryan Khan",
+"objCode": "USER",
+"lastName": "Khan",
+"firstName": "Ryan"}}}

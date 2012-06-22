@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Integration\CBM.AtTask.Integration.csproj" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-06-15" time="14:12:25">
+  <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5456" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files\NUnit 2.5.10\bin\net-2.0" machine-name="MEG" user="ahaley" user-domain="Meg" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Test Project" name="C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Integration\CBM.AtTask.Integration.csproj" executed="True" result="Success" success="True" time="2.636" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="C:\Users\ahaley\Documents\Visual Studio 2010\Projects\CarbonMonoxide\CBM.AtTask.Integration\bin\Debug\CBM.AtTask.Integration.dll" executed="True" result="Success" success="True" time="2.558" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="NiemeyerAdapterTest" executed="True" result="Success" success="True" time="2.558" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="GetPayrollReport_For_Drecksage" executed="True" result="Success" success="True" time="2.558" asserts="0">
+                <results>
+                  <test-case name="CBM.AtTask.Integration.NiemeyerAdapterTest.GetPayrollReport_For_Drecksage(&quot;2011-3-27&quot;)" executed="True" result="Success" success="True" time="2.558" asserts="2" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
