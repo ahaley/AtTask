@@ -13,7 +13,7 @@ namespace ahaley.AtTask
         string AtTaskUrl;
         static readonly string TimesheetFields = "fields=userID,regularHours,totalHours,overtimeHours,endDate,user,user:firstName,user:lastName,hours:hours,hours:hourTypeID";
         readonly MyAtTaskRestClient client;
-        readonly TimesheetMapper mapper;
+        readonly PayrollMapper mapper;
 
         readonly string[] userFields = new string[] {
             "ID", "name", "firstName", "lastName", "title", "address", "city",
@@ -24,7 +24,7 @@ namespace ahaley.AtTask
         public Gateway()
         {
             ReadCredentials();
-            mapper = new TimesheetMapper();
+            mapper = new PayrollMapper();
             client = new MyAtTaskRestClient(AtTaskUrl);
             client.DebugUrls = true;
             client.Login(Username, Password);

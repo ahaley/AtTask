@@ -74,7 +74,7 @@
     <Compile Include="PayrollAdapter.cs" />
     <Compile Include="PayrollFilterBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimesheetMapper.cs" />
+    <Compile Include="PayrollMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AtTaskRestExample\AtTaskRestExample.csproj">

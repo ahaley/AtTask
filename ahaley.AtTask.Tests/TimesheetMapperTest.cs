@@ -15,7 +15,7 @@ namespace ahaley.AtTask.Test
         {
             // arrange
             JObject timesheet = CreateTimesheet().Value<JObject>("data");
-            TimesheetMapper mapper = new TimesheetMapper();
+            PayrollMapper mapper = new PayrollMapper();
 
             // act
             Payroll payroll = mapper.MapTimesheetToPayrollReportItem(timesheet);
@@ -30,7 +30,7 @@ namespace ahaley.AtTask.Test
             // arrange
             const string UserID = "9d3c8120a614cebbe040007f01002438";
             JArray timesheets = CreateTimesheets().Value<JArray>("data");
-            TimesheetMapper mapper = new TimesheetMapper();
+            PayrollMapper mapper = new PayrollMapper();
 
             // act
             Payroll[] payrollItems = mapper.MapTimesheetsToPayrollReportItem(timesheets);
@@ -62,7 +62,7 @@ namespace ahaley.AtTask.Test
 
             JArray expenses = JObject.Parse(expenseJson).Value<JArray>("data");
             JArray timesheets = CreateTimesheets().Value<JArray>("data");
-            TimesheetMapper mapper = new TimesheetMapper();
+            PayrollMapper mapper = new PayrollMapper();
 
             // act
             Payroll[] payrollItems = mapper.MapTimesheetsToPayrollReportItem(timesheets, expenses);

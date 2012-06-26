@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ahaley.AtTask
 {
-    public class TimesheetMapper : IPayrollMapper
+    public class PayrollMapper : IPayrollMapper
     {
         public Payroll[] MapTimesheetsToPayrollReportItem(JToken timesheets, JToken expenses = null)
         {
