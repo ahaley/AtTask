@@ -65,7 +65,9 @@ namespace ahaley.AtTask
         {
             Payroll payrollItem = GetPayrollItem(timesheet);
 
-            payrollItem.RegularHours -= (payrollItem.PaidTimeOff + payrollItem.AbsentHours);
+            payrollItem.RegularHours -= (payrollItem.PaidTimeOff + payrollItem.AbsentHours + payrollItem.HolidayHours);
+            payrollItem.OvertimeHours = (payrollItem.TotalHours - payrollItem.AbsentHours - payrollItem.HolidayHours - payrollItem.PaidTimeOff - 40);
+            if (payrollItem.OvertimeHours < 0) payrollItem.OvertimeHours = 0;
 
             ApplyExpenses(expenses, payrollItem);
 
