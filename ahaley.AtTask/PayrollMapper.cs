@@ -16,6 +16,19 @@ namespace ahaley.AtTask
             return payrollItems.ToArray();
         }
 
+        public Payroll MapTimesheetToPayrollReportItem(JToken timesheet, JToken expenses = null)
+        {
+            Payroll payrollItem = GetPayrollItem(timesheet);
+
+            payrollItem.RegularHours -= (payrollItem.PaidTimeOff + payrollItem.AbsentHours + payrollItem.HolidayHours);
+            payrollItem.OvertimeHours = (payrollItem.TotalHours - payrollItem.AbsentHours - payrollItem.HolidayHours - payrollItem.PaidTimeOff - 40);
+            if (payrollItem.OvertimeHours < 0) payrollItem.OvertimeHours = 0;
+
+            ApplyExpenses(expenses, payrollItem);
+
+            return payrollItem;
+        }
+
         private static Payroll GetPayrollItem(JToken timesheet)
         {
             JObject user = timesheet.Value<JObject>("user");
@@ -61,18 +74,7 @@ namespace ahaley.AtTask
             item.TotalPerDiem = expenseForType(ExpenseType.PerDiem);
         }
 
-        public Payroll MapTimesheetToPayrollReportItem(JToken timesheet, JToken expenses = null)
-        {
-            Payroll payrollItem = GetPayrollItem(timesheet);
-
-            payrollItem.RegularHours -= (payrollItem.PaidTimeOff + payrollItem.AbsentHours + payrollItem.HolidayHours);
-            payrollItem.OvertimeHours = (payrollItem.TotalHours - payrollItem.AbsentHours - payrollItem.HolidayHours - payrollItem.PaidTimeOff - 40);
-            if (payrollItem.OvertimeHours < 0) payrollItem.OvertimeHours = 0;
-
-            ApplyExpenses(expenses, payrollItem);
-
-            return payrollItem;
-        }
+        
 
     }
 }

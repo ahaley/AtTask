@@ -10,19 +10,19 @@ namespace ahaley.AtTask
     {
         public ExpenseAdapter(IGateway gateway)
         {
-            _gateway = gateway;
+            this.gateway = gateway;
         }
 
-        private static readonly string InChargeExpenseFields = "fields=expenseTypeID,actualUnitAmount,effectiveDate,DE:Expense Owner";
-        private readonly IGateway _gateway;
+        static readonly string InChargeExpenseFields = "fields=expenseTypeID,actualUnitAmount,effectiveDate,DE:Expense Owner";
+        readonly IGateway gateway;
 
         public JArray GetExpenses(DateTime startDate, DateTime endDate)
         {
-            var expenseFilterBuilder = CreateExpenseFields(startDate, endDate);
-            return _gateway.Client.Search(ObjCode.EXPENSE, expenseFilterBuilder).Value<JArray>("data");
+            var expenseParameters = CreateExpenseParameters(startDate, endDate);
+            return gateway.Client.Search(ObjCode.EXPENSE, expenseParameters).Value<JArray>("data");
         }
 
-        private List<string> CreateExpenseFields(DateTime startDate, DateTime endDate)
+        List<string> CreateExpenseParameters(DateTime startDate, DateTime endDate)
         {
             var expenseBuilder = new FilterBuilder();
             expenseBuilder.ShortDateRange("effectiveDate", startDate, endDate);

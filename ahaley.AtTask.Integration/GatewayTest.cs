@@ -31,45 +31,47 @@ namespace ahaley.AtTask.Integration
         [Test]
         public void Calculate_InCharge_Bonus_From_Raw_REST_Client()
         {
-            var gateway = new Gateway();
             var builder = new FilterBuilder();
             builder.DateRange("effectiveDate", new DateTime(2010, 11, 22), new DateTime(2010, 11, 28));
             var filter = builder.Filter;
             filter.Add("fields=expenseTypeID,actualUnitAmount,effectiveDate,parameterValues");
 
-            JArray expenses = gateway.Client.Search(ObjCode.EXPENSE, filter).Value<JArray>("data");
+            JArray expenses;
 
-            const string drecksageCode = "9d3c8120a653cebbe040007f01002438";
+            using (Gateway gateway = new Gateway()) {
+                expenses = gateway.Client.Search(ObjCode.EXPENSE, filter).Value<JArray>("data");
+            }
+
+            const string userId = "9d3c8120a653cebbe040007f01002438";
             const string InChargeExpenseType = "9d3c90342fe3fa2ae040007f01002426";
 
             IEnumerable<JToken> inChargeExpenses = from e in expenses.Children()
                                                    where e.Value<string>("expenseTypeID") == InChargeExpenseType
-                                                   && e.Value<JObject>("parameterValues").Value<string>("DE:Expense Owner") == drecksageCode
+                                                   && e.Value<JObject>("parameterValues").Value<string>("DE:Expense Owner") == userId
                                                    select e;
             Assert.AreEqual(1, inChargeExpenses.Sum(x => x.Value<int>("actualUnitAmount")));
-
-            gateway.Dispose();
         }
 
 
         [Test]
-        public void Calculate_Drecksage_InChargeDays()
+        public void Calculate_User_InChargeDays()
         {
             // arrange
-            const string drecksageCode = "9d3c8120a653cebbe040007f01002438";
+            const string userId = "9d3c8120a653cebbe040007f01002438";
             var filter = new FilterBuilder();
             filter.DateRange("endDate", new DateTime(2010, 11, 22), new DateTime(2010, 11, 28));
-            Payroll[] payroll = null;
+            Payroll[] payrollItems = null;
 
             // act
             using (Gateway gateway = new Gateway()) {
-                payroll = gateway.GetTimesheetsByFilter(filter);
+                payrollItems = gateway.GetTimesheetsByFilter(filter);
             }
 
             // assert
-            Payroll drecksagePayroll = payroll.Single(x => x.EmployeeID == drecksageCode);
+            Payroll payroll = payrollItems.Single(x => x.EmployeeID == userId);
 
-            Console.WriteLine("in charge = {0}", drecksagePayroll.InChargeDays);
+            Console.WriteLine("in charge = {0}", payroll.InChargeDays);
+            Console.WriteLine("mileage = {0}", payroll.TotalMileage);
         }
 
         [Test]

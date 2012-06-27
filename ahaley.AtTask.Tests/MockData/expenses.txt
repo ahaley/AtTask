@@ -25,6 +25,22 @@
   "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
   "expenseTypeID": "9d3c90342fe3fa2ae040007f01002426"},
   {
+  "ID": "4d8cb713000c6dd80f69cdc498e0c6fe",
+  "objCode": "EXPNS",
+  "actualUnitAmount": 8,
+  "parameterValues": {
+  "DE:Contractor Company": "NA",
+  "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
+  "expenseTypeID": "9d3c90342fc8fa2ae040007f01002426"},
+  {
+  "ID": "4d8cb713000c6dd80f69cdc498e0c6fe",
+  "objCode": "EXPNS",
+  "actualUnitAmount": 5,
+  "parameterValues": {
+  "DE:Contractor Company": "NA",
+  "DE:Expense Owner": "9d3c8120a653cebbe040007f01002438"},
+  "expenseTypeID": "9d3c90342fc8fa2ae040007f01002426"},
+  {
   "ID": "4d8600d4000017f7699affdf7b2cee6f",
   "objCode": "EXPNS",
   "actualUnitAmount": 1,

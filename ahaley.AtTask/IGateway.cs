@@ -6,6 +6,6 @@ namespace ahaley.AtTask
     {
         Payroll[] GetTimesheetsByFilter(FilterBuilder builder);
         Employee GetEmployee(string id);
-        MyAtTaskRestClient Client { get; }
+        IMyAtTaskRestClient Client { get; }
     }
 }

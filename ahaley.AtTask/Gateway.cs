@@ -8,12 +8,9 @@ namespace ahaley.AtTask
 {
     public class Gateway : IDisposable, IGateway
     {
-        string Username;
-        string Password;
-        string AtTaskUrl;
         static readonly string TimesheetFields = "fields=userID,regularHours,totalHours,overtimeHours,endDate,user,user:firstName,user:lastName,hours:hours,hours:hourTypeID";
-        readonly MyAtTaskRestClient client;
-        readonly PayrollMapper mapper;
+        readonly IMyAtTaskRestClient client;
+        readonly IPayrollMapper mapper;
 
         readonly string[] userFields = new string[] {
             "ID", "name", "firstName", "lastName", "title", "address", "city",
@@ -21,33 +18,18 @@ namespace ahaley.AtTask
             "emailAddr", "entryDate"
         };
 
+        public Gateway(IPayrollMapper mapper, IMyAtTaskRestClient client = null)
+        {
+            this.mapper = mapper;
+            this.client = client ?? MyAtTaskRestClient.Create();
+        }
+
         public Gateway()
+            : this(new PayrollMapper())
         {
-            ReadCredentials();
-            mapper = new PayrollMapper();
-            client = new MyAtTaskRestClient(AtTaskUrl);
-            client.DebugUrls = true;
-            client.Login(Username, Password);
         }
 
-        void ReadCredentials()
-        {
-            var settings = ConfigurationManager.AppSettings;
-            Username = settings.Get("Username");
-            if (null == Username) {
-                throw new Exception("The AtTask username must be defined in the application settings");
-            }
-            Password = settings.Get("Password");
-            if (null == Password) {
-                throw new Exception("The AtTask password must be defined in the application settings");
-            }
-            AtTaskUrl = settings.Get("AtTaskUrl");
-            if (null == AtTaskUrl) {
-                throw new Exception("The AtTask URL must be defined in the application settings");
-            }
-        }
-
-        public MyAtTaskRestClient Client
+        public IMyAtTaskRestClient Client
         {
             get
             {

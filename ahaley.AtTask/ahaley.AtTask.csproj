@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="AtTaskExtentionMethods.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="IMyAtTaskRestClient.cs" />
     <Compile Include="Payroll.cs" />
     <Compile Include="ExpenseAdapter.cs" />
     <Compile Include="ExpenseType.cs" />

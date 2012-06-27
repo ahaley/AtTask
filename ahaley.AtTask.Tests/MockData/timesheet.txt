@@ -139,7 +139,7 @@
 "totalHours": 40,
 "user": {
 "ID": "9d3c8120a643cebbe040007f01002438",
-"name": "Ryan Khan",
+"name": "User One",
 "objCode": "USER",
-"lastName": "Khan",
-"firstName": "Ryan"}}}
+"lastName": "One",
+"firstName": "User"}}}
