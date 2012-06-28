@@ -17,7 +17,7 @@ namespace ahaley.AtTask
         {
             string endDate = string.Format("{0}endDate", prefix);
             string categoryID = string.Format("{0}user:categoryID", prefix);
-            Builder.FieldEquals(endDate, weekEnding.ToAtTaskDate());
+            Builder.AddConstraint(endDate, weekEnding);
             Builder.NotEquals(categoryID, PayrollAdapter.ContractorCategory);
         }
 
@@ -27,7 +27,7 @@ namespace ahaley.AtTask
                 return;
             string field = string.Format("{0}approverID", prefix);
             foreach (string approver in approverList) {
-                Builder.FieldEquals(field, approver);
+                Builder.AddConstraint(field, approver);
             }
         }
     }

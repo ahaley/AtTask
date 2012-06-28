@@ -6,7 +6,7 @@ using AtTaskRestExample;
 using NUnit.Framework;
 using ahaley.AtTask;
 
-namespace ahaley.AtTask.Test
+namespace ahaley.AtTask.Tests
 {
     [TestFixture]
     public class ExpenseAdapterTest

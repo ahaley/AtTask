@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using ahaley.AtTask;
 
-namespace ahaley.AtTask.Test
+namespace ahaley.AtTask.Tests
 {
     [TestFixture]
     public class FilterBuilderTest
@@ -45,7 +45,7 @@ namespace ahaley.AtTask.Test
             var builder = new FilterBuilder();
 
             // act
-            builder.FieldEquals("name1", "value1");
+            builder.AddConstraint("name1", "value1");
 
             // assert
             List<string> filter = builder.Filter;
@@ -61,7 +61,7 @@ namespace ahaley.AtTask.Test
             var date = new DateTime(2011, 1, 1);
 
             // act
-            builder.FieldEquals("test1", date);
+            builder.AddConstraint("test1", date);
 
             // assert
             Assert.IsTrue(builder.Filter.Contains("test1=" + date.ToAtTaskDate()));
@@ -72,8 +72,8 @@ namespace ahaley.AtTask.Test
         {
             // arrange
             var builder = new FilterBuilder();
-            builder.FieldEquals("name1", "value1");
-            builder.FieldEquals("name2", "value2");
+            builder.AddConstraint("name1", "value1");
+            builder.AddConstraint("name2", "value2");
 
             // act
             List<string> filter = builder.Filter;
@@ -155,7 +155,7 @@ namespace ahaley.AtTask.Test
             var builder = new FilterBuilder();
             var endDate = new DateTime(2011, 1, 16);
             // act
-            builder.FieldEquals("endDate", endDate);
+            builder.AddConstraint("endDate", endDate);
 
             // assert
             Assert.IsTrue(builder.ContainsDateRange);
@@ -170,8 +170,8 @@ namespace ahaley.AtTask.Test
             var builder = new FilterBuilder();
             var endDate1 = new DateTime(2011, 1, 16);
             var endDate2 = new DateTime(2011, 1, 23);
-            builder.FieldEquals("endDate", endDate1);
-            builder.FieldEquals("OR:a:endDate", endDate2);
+            builder.AddConstraint("endDate", endDate1);
+            builder.AddConstraint("OR:a:endDate", endDate2);
 
             // act, assert
             Assert.IsTrue(builder.ContainsDateRange);
@@ -185,7 +185,7 @@ namespace ahaley.AtTask.Test
             // arrange
             var builder = new FilterBuilder();
             var endDate = new DateTime(2011, 3, 27);
-            builder.FieldEquals("endDate", endDate);
+            builder.AddConstraint("endDate", endDate);
 
             // act, assert
             Assert.IsTrue(builder.ContainsDateRange);

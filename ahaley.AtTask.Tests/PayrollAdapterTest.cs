@@ -6,7 +6,7 @@ using NUnit.Framework;
 using Moq;
 using ahaley.AtTask;
 
-namespace ahaley.AtTask.Test
+namespace ahaley.AtTask.Tests
 {
     [TestFixture]
     class PayrollAdapterTest
@@ -142,7 +142,7 @@ namespace ahaley.AtTask.Test
         void Then_Gateway_Should_Be_Called_For_That_Week()
         {
             var expectedBuilder = new FilterBuilder();
-            expectedBuilder.FieldEquals("endDate", expectedWeekEnding.ToAtTaskDate());
+            expectedBuilder.AddConstraint("endDate", expectedWeekEnding.ToAtTaskDate());
             expectedBuilder.NotEquals("user:categoryID", PayrollAdapter.ContractorCategory);
 
             gateway.Verify(g => g.GetTimesheetsByFilter(
@@ -153,10 +153,10 @@ namespace ahaley.AtTask.Test
         void Then_Gateway_Should_Be_Called_For_That_Week_And_Filtered_Approvers()
         {
             var expectedBuilder = new FilterBuilder();
-            expectedBuilder.FieldEquals("endDate", expectedWeekEnding.ToAtTaskDate());
-            expectedBuilder.FieldEquals("approverID", "abc");
-            expectedBuilder.FieldEquals("approverID", "abd");
-            expectedBuilder.FieldEquals("approverID", "abe");
+            expectedBuilder.AddConstraint("endDate", expectedWeekEnding.ToAtTaskDate());
+            expectedBuilder.AddConstraint("approverID", "abc");
+            expectedBuilder.AddConstraint("approverID", "abd");
+            expectedBuilder.AddConstraint("approverID", "abe");
             expectedBuilder.NotEquals("user:categoryID", PayrollAdapter.ContractorCategory);
 
             gateway.Verify(g => g.GetTimesheetsByFilter(
@@ -167,8 +167,8 @@ namespace ahaley.AtTask.Test
         void Then_Gateway_Should_Be_Called_For_That_Period()
         {
             var expectedBuilder = new FilterBuilder();
-            expectedBuilder.FieldEquals("endDate", expectedWeekEnding.ToAtTaskDate());
-            expectedBuilder.FieldEquals("OR:a:endDate", expectedWeekEnding.AddDays(-7).ToAtTaskDate());
+            expectedBuilder.AddConstraint("endDate", expectedWeekEnding.ToAtTaskDate());
+            expectedBuilder.AddConstraint("OR:a:endDate", expectedWeekEnding.AddDays(-7).ToAtTaskDate());
             expectedBuilder.NotEquals("user:categoryID", PayrollAdapter.ContractorCategory);
             expectedBuilder.NotEquals("OR:a:user:categoryID", PayrollAdapter.ContractorCategory);
 
@@ -187,14 +187,14 @@ namespace ahaley.AtTask.Test
         void Then_Gateway_Should_Be_Called_For_That_Period_And_Filtered_Approvers()
         {
             var expectedBuilder = new FilterBuilder();
-            expectedBuilder.FieldEquals("endDate", expectedWeekEnding.ToAtTaskDate());
-            expectedBuilder.FieldEquals("approverID", "abc");
-            expectedBuilder.FieldEquals("approverID", "abd");
-            expectedBuilder.FieldEquals("approverID", "abe");
-            expectedBuilder.FieldEquals("OR:a:endDate", expectedWeekEnding.AddDays(-7).ToAtTaskDate());
-            expectedBuilder.FieldEquals("OR:a:approverID", "abc");
-            expectedBuilder.FieldEquals("OR:a:approverID", "abd");
-            expectedBuilder.FieldEquals("OR:a:approverID", "abe");
+            expectedBuilder.AddConstraint("endDate", expectedWeekEnding.ToAtTaskDate());
+            expectedBuilder.AddConstraint("approverID", "abc");
+            expectedBuilder.AddConstraint("approverID", "abd");
+            expectedBuilder.AddConstraint("approverID", "abe");
+            expectedBuilder.AddConstraint("OR:a:endDate", expectedWeekEnding.AddDays(-7).ToAtTaskDate());
+            expectedBuilder.AddConstraint("OR:a:approverID", "abc");
+            expectedBuilder.AddConstraint("OR:a:approverID", "abd");
+            expectedBuilder.AddConstraint("OR:a:approverID", "abe");
             expectedBuilder.NotEquals("user:categoryID", PayrollAdapter.ContractorCategory);
             expectedBuilder.NotEquals("OR:a:user:categoryID", PayrollAdapter.ContractorCategory);
 
@@ -206,8 +206,8 @@ namespace ahaley.AtTask.Test
         void Then_Gateway_Should_Be_Called_For_That_User()
         {
             var expectedBuilder = new FilterBuilder();
-            expectedBuilder.FieldEquals("userID", expectedUserId);
-            expectedBuilder.FieldEquals("endDate", expectedWeekEnding.ToAtTaskDate());
+            expectedBuilder.AddConstraint("userID", expectedUserId);
+            expectedBuilder.AddConstraint("endDate", expectedWeekEnding.ToAtTaskDate());
 
             gateway.Verify(g => g.GetTimesheetsByFilter(
                 It.Is<FilterBuilder>(b => b.Equals(expectedBuilder))

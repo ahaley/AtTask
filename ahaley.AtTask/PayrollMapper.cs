@@ -59,11 +59,14 @@ namespace ahaley.AtTask
             DateTime endExpenseDate = DateTime.Parse(item.WeekEnding.ToShortDateString());
             DateTime startExpenseDate = endExpenseDate.AddDays(-7);
             IEnumerable<JToken> relevantExpenses = from e in expenses.Children()
-                                                   where e.Value<string>("DE:Expense Owner") != null &&
-                                                   e.Value<string>("DE:Expense Owner").Contains(item.EmployeeID)
+                                                   where e.Value<string>("DE:Expense Owner") != null
+                                                   && e.Value<string>("DE:Expense Owner").Contains(item.EmployeeID)
                                                    && DateTime.Parse(e.Value<string>("effectiveDate")) > startExpenseDate
                                                    && DateTime.Parse(e.Value<string>("effectiveDate")) <= endExpenseDate
                                                    select e;
+
+            var list = relevantExpenses.ToList();
+
 
             Func<string, double> expenseForType = (expenseTypeID) => (from e in relevantExpenses
                                                                       where e.Value<string>("expenseTypeID") == expenseTypeID

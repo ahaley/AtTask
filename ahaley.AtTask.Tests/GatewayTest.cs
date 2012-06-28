@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 using AtTaskRestExample;
 using ahaley.AtTask.Tests.Properties;
 
-namespace ahaley.AtTask.Test
+namespace ahaley.AtTask.Tests
 {
     [TestFixture]
     public class GatewayTest
@@ -17,7 +17,7 @@ namespace ahaley.AtTask.Test
         {
             // arrange
             var builder = new FilterBuilder();
-            builder.FieldEquals("endDate", DateTime.Parse("2010-12-26"));
+            builder.AddConstraint("endDate", DateTime.Parse("2010-12-26"));
 
             var client = new Mock<IMyAtTaskRestClient>();
             client.Setup(x => x.Search(ObjCode.TIMESHEET, builder.Filter))

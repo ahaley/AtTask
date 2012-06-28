@@ -84,8 +84,8 @@ namespace ahaley.AtTask.Integration
             var gateway = new Gateway();
 
             FilterBuilder builder = new FilterBuilder();
-            builder.FieldEquals("userID", empId);
-            builder.FieldEquals("endDate", weekEnding);
+            builder.AddConstraint("userID", empId);
+            builder.AddConstraint("endDate", weekEnding);
             List<string> filter = builder.Filter;
             filter.Add("fields=hours,hours:hourTypeID,hours:hours");
 

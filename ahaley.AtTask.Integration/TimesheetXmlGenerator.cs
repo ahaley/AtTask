@@ -16,7 +16,7 @@ namespace ahaley.AtTask.Integration
             var weekEnding = new DateTime(2010, 12, 26);
             var builder = new FilterBuilder();
             builder
-            .FieldEquals("endDate", weekEnding);
+            .AddConstraint("endDate", weekEnding);
 
             JArray timesheets = null;
             using (var gateway = new Gateway()) {

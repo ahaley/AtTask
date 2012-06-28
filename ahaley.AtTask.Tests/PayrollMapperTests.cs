@@ -5,7 +5,7 @@ using NUnit.Framework;
 using ahaley.AtTask;
 using ahaley.AtTask.Tests.Properties;
 
-namespace ahaley.AtTask.Test
+namespace ahaley.AtTask.Tests
 {
     [TestFixture]
     public class PayrollMapperTests

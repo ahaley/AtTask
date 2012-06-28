@@ -34,7 +34,7 @@ namespace ahaley.AtTask
             return left.All(l => right.Any(r => l == r));
         }
 
-        public FilterBuilder FieldEquals(string field, string value)
+        public FilterBuilder AddConstraint(string field, string value)
         {
             _filters.Add(String.Format("{0}={1}", field, value));
             return this;
@@ -42,12 +42,12 @@ namespace ahaley.AtTask
 
         public FilterBuilder ApplyOperation(string field, string value, string opcode)
         {
-            FieldEquals(field, value);
-            FieldEquals(field + "_Mod", opcode);
+            AddConstraint(field, value);
+            AddConstraint(field + "_Mod", opcode);
             return this;
         }
 
-        public FilterBuilder FieldEquals(string field, DateTime date)
+        public FilterBuilder AddConstraint(string field, DateTime date)
         {
             if (ContainsDateRange) {
                 if (date > EndDate)
@@ -61,7 +61,7 @@ namespace ahaley.AtTask
                 StartDate = date.AddDays(-7);
                 ContainsDateRange = true;
             }
-            return FieldEquals(field, date.ToAtTaskDate());
+            return AddConstraint(field, date.ToAtTaskDate());
         }
 
         public FilterBuilder NotEquals(string field, string value)
@@ -74,8 +74,8 @@ namespace ahaley.AtTask
             ContainsDateRange = true;
             StartDate = startDate;
             EndDate = endDate;
-            FieldEquals(field, startDate.ToAtTaskDate());
-            FieldEquals(field + "_Range", endDate.ToAtTaskDate());
+            AddConstraint(field, startDate.ToAtTaskDate());
+            AddConstraint(field + "_Range", endDate.ToAtTaskDate());
             return this;
         }
 
@@ -84,8 +84,8 @@ namespace ahaley.AtTask
             ContainsDateRange = true;
             StartDate = startDate;
             EndDate = endDate;
-            FieldEquals(field, startDate.ToShortDateString());
-            FieldEquals(field + "_Range", endDate.ToShortDateString());
+            AddConstraint(field, startDate.ToShortDateString());
+            AddConstraint(field + "_Range", endDate.ToShortDateString());
             return this;
         }
 

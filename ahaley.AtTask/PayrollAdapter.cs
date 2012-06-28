@@ -28,8 +28,8 @@ namespace ahaley.AtTask
         public Payroll GetPayrollForEmployee(string userId, DateTime weekEnding)
         {
             var builder = new FilterBuilder();
-            builder.FieldEquals("userID", userId);
-            builder.FieldEquals("endDate", weekEnding.ToAtTaskDate());
+            builder.AddConstraint("userID", userId);
+            builder.AddConstraint("endDate", weekEnding.ToAtTaskDate());
             var items = Gateway.GetTimesheetsByFilter(builder);
             if (items == null || items.Length == 0)
                 return null;
