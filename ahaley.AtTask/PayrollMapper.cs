@@ -7,6 +7,8 @@ namespace ahaley.AtTask
 {
     public class PayrollMapper : IPayrollMapper
     {
+        int BaseWeekHour = 40;
+
         public Payroll[] MapTimesheetsToPayrollReportItem(JToken timesheets, JToken expenses = null)
         {
             var payrollItems = new List<Payroll>();
@@ -16,13 +18,22 @@ namespace ahaley.AtTask
             return payrollItems.ToArray();
         }
 
+        double CalculateRegular(Payroll p)
+        {
+            return Math.Min(BaseWeekHour, p.TotalHours - p.PaidTimeOff - p.HolidayHours - p.AbsentHours - p.SuspensionHours);
+        }
+
+        double CalculateOvertime(Payroll p)
+        {
+            return Math.Max(0, p.TotalHours - BaseWeekHour - p.AbsentHours - p.HolidayHours - p.PaidTimeOff - p.SuspensionHours);
+        }
+
         public Payroll MapTimesheetToPayrollReportItem(JToken timesheet, JToken expenses = null)
         {
             Payroll payrollItem = GetPayrollItem(timesheet);
 
-            payrollItem.RegularHours -= (payrollItem.PaidTimeOff + payrollItem.AbsentHours + payrollItem.HolidayHours);
-            payrollItem.OvertimeHours = (payrollItem.TotalHours - payrollItem.AbsentHours - payrollItem.HolidayHours - payrollItem.PaidTimeOff - 40);
-            if (payrollItem.OvertimeHours < 0) payrollItem.OvertimeHours = 0;
+            payrollItem.RegularHours = CalculateRegular(payrollItem);
+            payrollItem.OvertimeHours = CalculateOvertime(payrollItem);
 
             ApplyExpenses(expenses, payrollItem);
 
