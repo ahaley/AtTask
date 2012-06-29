@@ -29,7 +29,7 @@ namespace ahaley.AtTask
         {
             var builder = new FilterBuilder();
             builder.AddConstraint("userID", userId);
-            builder.AddConstraint("endDate", weekEnding.ToAtTaskDate());
+            builder.AddConstraint("endDate", weekEnding);
             var items = Gateway.GetTimesheetsByFilter(builder);
             if (items == null || items.Length == 0)
                 return null;
