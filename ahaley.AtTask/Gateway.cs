@@ -54,7 +54,7 @@ namespace ahaley.AtTask
                 expenses = adapter.GetExpenses(builder.StartDate.AddDays(1), builder.EndDate);
             }
 
-            return mapper.MapTimesheetsToPayrollReportItem(timesheets, expenses);
+            return mapper.MapAggregateJsonToPayroll(timesheets, expenses);
         }
 
         public Employee GetEmployee(string id)

@@ -14,11 +14,11 @@ namespace ahaley.AtTask.Tests
         public void Holiday_Value_Is_Mapped_To_Payroll()
         {
             // arrange
-            JObject timesheet = CreateTimesheet().Value<JObject>("data");
+            JObject timesheet = CreatePayrollJson();
             PayrollMapper mapper = new PayrollMapper();
 
             // act
-            Payroll payroll = mapper.MapTimesheetToPayrollReportItem(timesheet);
+            Payroll payroll = mapper.MapJsonToPayroll(timesheet);
 
             // assert
             Assert.AreEqual(8, payroll.HolidayHours);
@@ -29,11 +29,11 @@ namespace ahaley.AtTask.Tests
         {
             // arrange
             const string UserID = "9d3c8120a614cebbe040007f01002438";
-            JArray timesheets = CreateTimesheets().Value<JArray>("data");
+            JArray timesheets = CreateAggregatePayrollJson();
             PayrollMapper mapper = new PayrollMapper();
 
             // act
-            Payroll[] payrollItems = mapper.MapTimesheetsToPayrollReportItem(timesheets);
+            Payroll[] payrollItems = mapper.MapAggregateJsonToPayroll(timesheets);
 
             // assert
             var item = payrollItems.Single(x => x.EmployeeID == UserID);
@@ -61,11 +61,11 @@ namespace ahaley.AtTask.Tests
                 ""expenseTypeID"": ""9d3c90342fe3fa2ae040007f01002426""}]}";
 
             JArray expenses = JObject.Parse(expenseJson).Value<JArray>("data");
-            JArray timesheets = CreateTimesheets().Value<JArray>("data");
+            JArray timesheets = CreateAggregatePayrollJson();
             PayrollMapper mapper = new PayrollMapper();
 
             // act
-            Payroll[] payrollItems = mapper.MapTimesheetsToPayrollReportItem(timesheets, expenses);
+            Payroll[] payrollItems = mapper.MapAggregateJsonToPayroll(timesheets, expenses);
 
             // assert
             Payroll payroll = payrollItems.Single(x => x.EmployeeID == userId);
@@ -92,31 +92,70 @@ namespace ahaley.AtTask.Tests
                 ""DE:Expense Owner"": ""1337"",
                 ""expenseTypeID"": ""9d3c90342fe3fa2ae040007f01002426""}]}";
 
-            JArray expenses = JObject.Parse(expenseJson).Value<JArray>("data");
-            JArray timesheets = CreateTimesheets().Value<JArray>("data");
+            JArray expensesJson = JObject.Parse(expenseJson).Value<JArray>("data");
+            JArray aggregatePayrollJson = CreateAggregatePayrollJson();
             PayrollMapper mapper = new PayrollMapper();
 
             // act
-            Payroll[] payrollItems = mapper.MapTimesheetsToPayrollReportItem(timesheets, expenses);
+            Payroll[] payrollItems = mapper.MapAggregateJsonToPayroll(aggregatePayrollJson, expensesJson);
 
             // assert
             Payroll payroll = payrollItems.Single(x => x.EmployeeID == userId);
             Assert.AreEqual(3, payroll.TotalMileage);
         }
 
-        private static JObject CreateTimesheet()
+        [Test]
+        public void PayrollMapper_Can_Calculate_Mileage_With_Multiple_Expense_Owners()
         {
-            return JObject.Parse(Resources.timesheet);
+            // arrange
+            var mapper = new PayrollMapper();
+
+            // act
+            var payrollItems = mapper.MapAggregateJsonToPayroll(CreateAggregatePayrollForMultipleOwnerJson(), CreateExpensesWithMultipleOwnerJson());
+
+            // assert
+            var payroll = payrollItems.Single(x => x.EmployeeID == "9d3c8120a611cebbe040007f01002438");
+            Assert.AreEqual(340.0, payroll.TotalMileage);
         }
 
-        private static JObject CreateTimesheets()
+        [Test]
+        public void PayrollMapper_Can_Calculate_PerDiem_With_Multiple_Expense_Owners()
         {
-            return JObject.Parse(Resources.timesheets);
+            // arrange
+            var mapper = new PayrollMapper();
+            
+            // act
+            var payrollItems = mapper.MapAggregateJsonToPayroll(CreateAggregatePayrollForMultipleOwnerJson(), CreateExpensesWithMultipleOwnerJson());
+
+            // arrange
+            var payroll = payrollItems.Single(x => x.EmployeeID == "9d3c8120a640cebbe040007f01002438");
+            Assert.AreEqual(5.0, payroll.TotalPerDiem);
+
         }
 
-        private static JObject GetExpensesJArray()
+        static JObject CreatePayrollJson()
         {
-            return JObject.Parse(Resources.expenses);
+            return JObject.Parse(Resources.timesheet).Value<JObject>("data");
+        }
+
+        static JArray CreateAggregatePayrollJson()
+        {
+            return JObject.Parse(Resources.timesheets).Value<JArray>("data");
+        }
+
+        static JArray CreateExpensesJson()
+        {
+            return JObject.Parse(Resources.expenses).Value<JArray>("data");
+        }
+
+        static JArray CreateAggregatePayrollForMultipleOwnerJson()
+        {
+            return JObject.Parse(Resources.payroll_aggregate_for_2011_12_18).Value<JArray>("data");
+        }
+
+        static JArray CreateExpensesWithMultipleOwnerJson()
+        {
+            return JObject.Parse(Resources.expenses_multiple_owner).Value<JArray>("data");
         }
     }
 }

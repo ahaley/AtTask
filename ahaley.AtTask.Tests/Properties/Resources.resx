@@ -121,6 +121,12 @@
   <data name="expenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\MockData\expenses.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="expenses_multiple_owner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\MockData\expenses_multiple_owner.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="payroll_aggregate_for_2011_12_18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\MockData\payroll_aggregate_for_2011_12_18.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="timesheet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\MockData\timesheet.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

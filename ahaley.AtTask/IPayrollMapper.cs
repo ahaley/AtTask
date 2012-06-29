@@ -5,7 +5,7 @@ namespace ahaley.AtTask
 {
     public interface IPayrollMapper
     {
-        Payroll[] MapTimesheetsToPayrollReportItem(JToken timesheets, JToken expenses);
-        Payroll MapTimesheetToPayrollReportItem(JToken timesheet, JToken expenses);
+        Payroll[] MapAggregateJsonToPayroll(JToken payrollAggregateJson, JToken expensesJson);
+        Payroll MapJsonToPayroll(JToken payrollJson, JToken expensesJson);
     }
 }

@@ -81,6 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MockData\expenses.txt" />
+    <Content Include="MockData\expenses_multiple_owner.txt" />
+    <Content Include="MockData\payroll_aggregate_for_2011_12_18.txt" />
     <Content Include="MockData\timesheet.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

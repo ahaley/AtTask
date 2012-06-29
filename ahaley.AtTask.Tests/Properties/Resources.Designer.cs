@@ -67,22 +67,39 @@ namespace ahaley.AtTask.Tests.Properties {
         ///  &quot;ID&quot;: &quot;4d8cb6ee000c6d0820ca981bfebc8c20&quot;,
         ///  &quot;objCode&quot;: &quot;EXPNS&quot;,
         ///  &quot;actualUnitAmount&quot;: 2,
-        ///  &quot;parameterValues&quot;: {
+        ///  &quot;effectiveDate&quot;: &quot;2010-12-26&quot;,
         ///  &quot;DE:Contractor Company&quot;: &quot;NA&quot;,
-        ///  &quot;DE:Expense Owner&quot;: &quot;9d3c8120a653cebbe040007f01002438&quot;},
+        ///  &quot;DE:Expense Owner&quot;: &quot;9d3c8120a653cebbe040007f01002438&quot;,
         ///  &quot;expenseTypeID&quot;: &quot;9d3c90342fe3fa2ae040007f01002426&quot;},
         ///  {
         ///  &quot;ID&quot;: &quot;4d8cb55f000c534aeaa6ff93dd4dc8c1&quot;,
         ///  &quot;objCode&quot;: &quot;EXPNS&quot;,
         ///  &quot;actualUnitAmount&quot;: 2,
-        ///  &quot;parameterValues&quot;: {
+        ///  &quot;effectiveDate&quot;: &quot;2010-12-26&quot;,
         ///  &quot;DE:Contractor Company&quot;: &quot;NA&quot;,
-        ///  &quot;DE:Expense Owner&quot;: &quot;9d3c8120a653cebbe040007f01002438&quot;},
-        ///  &quot;expe [rest of string was truncated]&quot;;.
+        ///  &quot;DE:Expense Owner&quot;: &quot;9d3c8120a653cebbe040007f0 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string expenses {
             get {
                 return ResourceManager.GetString("expenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;ID&quot;:&quot;4ee8ccc00030be7561b598e161c2b127&quot;,&quot;objCode&quot;:&quot;EXPNS&quot;,&quot;expenseTypeID&quot;:&quot;f253b0eb5828874f7c6c30c8ccf90155&quot;,&quot;actualUnitAmount&quot;:0.0,&quot;effectiveDate&quot;:&quot;2011-12-13&quot;,&quot;DE:Expense Owner&quot;:null},{&quot;ID&quot;:&quot;4eeb39fc0015ad400d6bf2ce9fd8cac4&quot;,&quot;objCode&quot;:&quot;EXPNS&quot;,&quot;expenseTypeID&quot;:&quot;9d3c90342fc8fa2ae040007f01002426&quot;,&quot;actualUnitAmount&quot;:68.0,&quot;effectiveDate&quot;:&quot;2011-12-16&quot;,&quot;DE:Expense Owner&quot;:null},{&quot;ID&quot;:&quot;4eeb3a110015ad5681002f22c8910fd7&quot;,&quot;objCode&quot;:&quot;EXPNS&quot;,&quot;expenseTypeID&quot;:&quot;9d3c90342fc8fa2ae040007f01002426&quot;,&quot;actualUnitAmount&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string expenses_multiple_owner {
+            get {
+                return ResourceManager.GetString("expenses_multiple_owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;data&quot;:[{&quot;ID&quot;:&quot;4edc6c1d000a77300ec67e746677b9eb&quot;,&quot;objCode&quot;:&quot;TSHET&quot;,&quot;userID&quot;:&quot;4eccedb600003bc2d770c5b13d6dbbc3&quot;,&quot;regularHours&quot;:40.0,&quot;totalHours&quot;:40.0,&quot;overtimeHours&quot;:0.0,&quot;endDate&quot;:&quot;2011-12-18T00:00:00:000-0700&quot;,&quot;user&quot;:{&quot;ID&quot;:&quot;4eccedb600003bc2d770c5b13d6dbbc3&quot;,&quot;name&quot;:&quot;Mike Rutkowski&quot;,&quot;objCode&quot;:&quot;USER&quot;,&quot;lastName&quot;:&quot;Rutkowski&quot;,&quot;firstName&quot;:&quot;Mike&quot;,&quot;showWhatsNew&quot;:true},&quot;hours&quot;:[{&quot;ID&quot;:&quot;4eeb3f790015db22361c1917e23962cd&quot;,&quot;objCode&quot;:&quot;HOUR&quot;,&quot;hours&quot;:8.0,&quot;hourTypeID&quot;:&quot;ca57688b54c3a0375c408f3ccf0af28b&quot;},{&quot;ID&quot;:&quot;4ee91fea000537 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string payroll_aggregate_for_2011_12_18 {
+            get {
+                return ResourceManager.GetString("payroll_aggregate_for_2011_12_18", resourceCulture);
             }
         }
         
@@ -129,15 +146,15 @@ namespace ahaley.AtTask.Tests.Properties {
         ///&quot;totalHours&quot;: 0,
         ///&quot;user&quot;: {
         ///&quot;ID&quot;: &quot;9d3c8120a63bcebbe040007f01002438&quot;,
-        ///&quot;name&quot;: &quot;David Goodwyn&quot;,
+        ///&quot;name&quot;: &quot;User One&quot;,
         ///&quot;objCode&quot;: &quot;USER&quot;,
-        ///&quot;lastName&quot;: &quot;Goodwyn&quot;,
-        ///&quot;firstName&quot;: &quot;David&quot;}},
+        ///&quot;lastName&quot;: &quot;One&quot;,
+        ///&quot;firstName&quot;: &quot;User&quot;}},
         ///{
         ///&quot;ID&quot;: &quot;9d3c81203f12cebbe040007f01002438&quot;,
         ///&quot;objCode&quot;: &quot;TSHET&quot;,
         ///&quot;userID&quot;: &quot;9d3c8120a611cebbe040007f01002438&quot;,
-        ///&quot;re [rest of string was truncated]&quot;;.
+        ///&quot;regularHours [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string timesheets {
             get {
