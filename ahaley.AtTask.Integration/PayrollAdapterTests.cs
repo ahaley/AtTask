@@ -1,6 +1,7 @@
 ﻿using System;
 using ahaley.AtTask;
 using NUnit.Framework;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace ahaley.AtTask.Integration
@@ -67,6 +68,11 @@ namespace ahaley.AtTask.Integration
         {
             var adapter = new PayrollAdapter();
             Payroll[] payrollItems = adapter.GetPayrollWeekEnding(DateTime.Parse("2012-7-1"));
+
+            List<Payroll> list = new List<Payroll>(payrollItems);
+            Payroll payroll = list.Single(x => x.Lastname == "Denton");
+
+            Assert.AreEqual(32, payroll.RegularHours);
         }
     }
 }
