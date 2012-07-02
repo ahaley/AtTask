@@ -20,7 +20,8 @@ namespace ahaley.AtTask
 
         static double CalculateRegular(Payroll p)
         {
-            return Math.Min(BaseWeekHour, p.TotalHours - p.PaidTimeOff - p.HolidayHours - p.AbsentHours - p.SuspensionHours);
+            return p.RegularHours;
+            //return Math.Min(BaseWeekHour, p.RegularHours - (p.PaidTimeOff + p.AbsentHours + p.HolidayHours));
         }
 
         static double CalculateOvertime(Payroll p)
