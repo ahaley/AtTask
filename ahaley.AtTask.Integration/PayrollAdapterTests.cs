@@ -1,6 +1,7 @@
 ﻿using System;
 using ahaley.AtTask;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace ahaley.AtTask.Integration
 {
@@ -59,6 +60,13 @@ namespace ahaley.AtTask.Integration
                     payrollItem.WeekEnding.ToShortDateString()
                 );
             }
+        }
+
+        [Test]
+        public void Get_Payroll_For_2012_7_1()
+        {
+            var adapter = new PayrollAdapter();
+            Payroll[] payrollItems = adapter.GetPayrollWeekEnding(DateTime.Parse("2012-7-1"));
         }
     }
 }
