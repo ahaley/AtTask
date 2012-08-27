@@ -88,6 +88,14 @@ namespace ahaley.AtTask.Tests
             When_GetCombinedPayrollEnding_Is_Called();
             Then_The_Resulting_Payroll_Should_Be_Combined_Per_Week();
         }
+
+        [Test]
+        public void PayrollCombinedPeriodEnding_Should_Combine_Mileage()
+        {
+            Given_Payroll_Adapter_Including_Multiple_Weeks_For_Employee();
+            When_GetCombinedPayrollEnding_Is_Called();
+            Then_The_Resulting_Payroll_Should_Combine_Mileage();
+        }
         
         void Given_Payroll_Adapter()
         {
@@ -103,8 +111,8 @@ namespace ahaley.AtTask.Tests
         void Given_Payroll_Adapter_Including_Multiple_Weeks_For_Employee()
         {
             expectedPayrollItems = new Payroll[] {
-                new Payroll() { WeekEnding = expectedWeekEnding.AddDays(-7), EmployeeID = "1337", TotalHours = 10 },
-                new Payroll() { WeekEnding = expectedWeekEnding, EmployeeID = "1337", TotalHours = 15 }
+                new Payroll() { WeekEnding = expectedWeekEnding.AddDays(-7), EmployeeID = "1337", TotalHours = 10, TotalMileage = 200 },
+                new Payroll() { WeekEnding = expectedWeekEnding, EmployeeID = "1337", TotalHours = 15, TotalMileage = 100 }
             };
 
             gateway.Setup(g => g.GetTimesheetsByFilter(It.IsAny<FilterBuilder>()))
@@ -219,6 +227,11 @@ namespace ahaley.AtTask.Tests
             Assert.AreEqual(1, actualPayrollItems.Length);
             Assert.AreEqual("1337", actualPayrollItems[0].EmployeeID);
             Assert.AreEqual(25, actualPayrollItems[0].TotalHours);
+        }
+
+        void Then_The_Resulting_Payroll_Should_Combine_Mileage()
+        {
+            Assert.AreEqual(300, actualPayrollItems[0].TotalMileage);
         }
 
     }

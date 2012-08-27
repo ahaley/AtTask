@@ -20,13 +20,12 @@ namespace ahaley.AtTask
 
         static double CalculateRegular(Payroll p)
         {
-            return Math.Min(BaseWeekHour, p.TotalHours - p.PaidTimeOff - p.AbsentHours - p.HolidayHours);
-            //return Math.Min(BaseWeekHour, p.RegularHours - (p.PaidTimeOff + p.AbsentHours + p.HolidayHours));
+            return Math.Min(BaseWeekHour, p.TotalHours - p.PaidTimeOff - p.AbsentHours - p.OvertimeHours - p.SuspensionHours);
         }
 
         static double CalculateOvertime(Payroll p)
         {
-            return Math.Max(0, p.TotalHours - BaseWeekHour - p.AbsentHours - p.HolidayHours - p.PaidTimeOff - p.SuspensionHours);
+            return Math.Max(0, p.TotalHours - BaseWeekHour - p.AbsentHours - p.SuspensionHours);
         }
 
         public Payroll MapJsonToPayroll(JToken payrollJson, JToken expenses = null)
