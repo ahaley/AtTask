@@ -16,8 +16,9 @@ namespace ahaley.AtTask
         public void ApplyPayrollFilter(DateTime weekEnding, string prefix = "")
         {
             string endDate = string.Format("{0}endDate", prefix);
-            string categoryID = string.Format("{0}user:categoryID", prefix);
             Builder.AddConstraint(endDate, weekEnding);
+            
+            string categoryID = string.Format("{0}user:categoryID", prefix);
             Builder.NotEquals(categoryID, PayrollAdapter.ContractorCategory);
         }
 

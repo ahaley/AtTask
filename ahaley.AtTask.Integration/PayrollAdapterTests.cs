@@ -74,5 +74,38 @@ namespace ahaley.AtTask.Integration
 
             Assert.AreEqual(32, payroll.RegularHours);
         }
+
+        [Test]
+        public void Get_Combined_Payroll_For_2012_8_26()
+        {
+            var adapter = new PayrollAdapter();
+            var items = adapter.GetCombinedPayrollPeriodEnding(DateTime.Parse("2012-8-26"));
+
+            var item = items.ToList().Single(x => x.Lastname == "Kutler");
+
+            Assert.AreEqual(910, item.TotalMileage);
+        }
+
+        [Test]
+        public void Get_Payroll_For_2012_8_26()
+        {
+            var adapter = new PayrollAdapter();
+            var items = adapter.GetPayrollWeekEnding(DateTime.Parse("2012-8-26"));
+
+            var item = items.ToList().Single(x => x.Lastname == "Kutler");
+
+            Assert.AreEqual(550, item.TotalMileage);
+        }
+
+        [Test]
+        public void Get_Payroll_For_2012_8_19()
+        {
+            var adapter = new PayrollAdapter();
+            var items = adapter.GetPayrollWeekEnding(DateTime.Parse("2012-8-19"));
+
+            var item = items.ToList().Single(x => x.Lastname == "Kutler");
+
+            Assert.AreEqual(360, item.TotalMileage);
+        }
     }
 }

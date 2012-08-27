@@ -26,6 +26,7 @@ namespace ahaley.AtTask
         {
             var expenseBuilder = new FilterBuilder();
             expenseBuilder.ShortDateRange("effectiveDate", startDate, endDate);
+            expenseBuilder.AddConstraint("$$LIMIT", "200");
             List<string> expenseFields = expenseBuilder.Filter;
             expenseFields.Add(InChargeExpenseFields);
             return expenseFields;
