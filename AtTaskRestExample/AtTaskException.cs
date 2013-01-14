@@ -15,6 +15,7 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 using System;
+using System.Diagnostics;
 
 namespace AtTaskRestExample
 {
@@ -23,6 +24,15 @@ namespace AtTaskRestExample
         public AtTaskException(string message)
             : base(message)
         {
+            var source = "AtTaskEventSource";
+            var eventLog = new EventLog();
+
+            if (!EventLog.SourceExists(source))
+                EventLog.CreateEventSource(source, "Application");
+
+            eventLog.Source = source;
+            eventLog.EnableRaisingEvents = true;
+            eventLog.WriteEntry(message);
         }
     }
 }
