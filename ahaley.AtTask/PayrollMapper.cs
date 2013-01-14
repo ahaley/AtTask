@@ -37,6 +37,10 @@ namespace ahaley.AtTask
 
             ApplyExpenses(expenses, payrollItem);
 
+            DateTime weekEndingUtc = payrollItem.WeekEnding;
+
+            payrollItem.WeekEnding = weekEndingUtc.Subtract(TimeZone.CurrentTimeZone.GetUtcOffset(weekEndingUtc));
+
             return payrollItem;
         }
 

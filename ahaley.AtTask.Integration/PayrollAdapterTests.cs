@@ -107,5 +107,13 @@ namespace ahaley.AtTask.Integration
 
             Assert.AreEqual(360, item.TotalMileage);
         }
+
+        [Test]
+        public void Get_Payroll_For_2013_1_6()
+        {
+            var adapter = new PayrollAdapter();
+            var items = adapter.GetPayrollWeekEnding(DateTime.Parse("2013-1-6"));
+
+        }
     }
 }
