@@ -159,5 +159,43 @@ namespace ahaley.AtTask.Integration
 
             Assert.AreEqual(eWeek1.TotalMileage + eWeek2.TotalMileage, ePeriod.TotalMileage);
         }
+
+        [Test]
+        public void Get_Payroll_For_2013_2_24_Combined()
+        {
+            var adapter = new PayrollAdapter();
+            /*
+            adapter.ApproverList = new string[] {
+                 "9d3c8120a649cebbe040007f01002438",
+                 "9d3c8120b2a0cebbe040007f01002438",
+                 "9d3c8120a636cebbe040007f01002438",
+                 "9d3c8120a63ecebbe040007f01002438",
+                 "4ea8a212000509f9dc0138f379c14bbf"
+            };*/
+
+            var periodPayroll = adapter.GetCombinedPayrollPeriodEnding(DateTime.Parse("2013-2-24")).ToList();
+            var week1 = adapter.GetPayrollWeekEnding(DateTime.Parse("2013-2-17")).ToList();
+            var week2 = adapter.GetPayrollWeekEnding(DateTime.Parse("2013-2-24")).ToList();
+
+            const string employeeName = "Enoch";
+            Payroll ePeriod = periodPayroll.Single(x => x.Lastname == employeeName);
+
+            var eWeek1 = week1.Single(x => x.Lastname == employeeName);
+            var eWeek2 = week2.Single(x => x.Lastname == employeeName);
+
+            Assert.AreEqual(eWeek1.TotalMileage + eWeek2.TotalMileage, ePeriod.TotalMileage);
+        }
+
+        [Test]
+        public void Get_Payroll_For_2013_3_10_Combined()
+        {
+            var adapter = new PayrollAdapter();
+
+            var periodPayroll = adapter.GetCombinedPayrollPeriodEnding(DateTime.Parse("2013-3-10")).ToList();
+         
+            Payroll ePeriod = periodPayroll.Single(x => x.EmployeeID == "4ebcb37b001928943846f3a774d7cb33");
+
+            Assert.AreEqual(235, ePeriod.TotalMileage);
+        }
     }
 }
