@@ -197,5 +197,17 @@ namespace ahaley.AtTask.Integration
 
             Assert.AreEqual(235, ePeriod.TotalMileage);
         }
+
+        [Test]
+        public void Get_Payroll_For_2013_4_14()
+        {
+            var adapter = new PayrollAdapter();
+            var payrollPeriod = adapter.GetPayrollWeekEnding(DateTime.Parse("2013-4-21")).ToList();
+
+            Payroll payroll = payrollPeriod.Single(x => x.EmployeeID == "4ec2cd5f00352d8e7f89ffc2f9e7ac15");
+
+            Assert.AreEqual(40, payroll.TotalHours);
+            Assert.AreEqual(20, payroll.SuspensionHours);
+        }
     }
 }

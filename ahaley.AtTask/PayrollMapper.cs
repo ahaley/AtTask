@@ -61,7 +61,8 @@ namespace ahaley.AtTask
                 RegularHours = payrollJson.Value<double>("regularHours"),
                 OvertimeHours = payrollJson.Value<double>("overtimeHours"),
                 AbsentHours = payrollJson.CountHourType(HourType.Absent),
-                HolidayHours = payrollJson.CountHourType(HourType.Holiday)
+                HolidayHours = payrollJson.CountHourType(HourType.Holiday),
+                SuspensionHours = payrollJson.CountHourType(HourType.Suspension)
             };
             return payroll;
         }
