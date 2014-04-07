@@ -85,8 +85,8 @@ namespace ahaley.AtTask
 
         static List<JToken> ExtractRelevantExpenses(JToken expensesJson, Payroll payroll)
         {
-            DateTime endExpenseDate = DateTime.Parse(payroll.WeekEnding.ToShortDateString());
-            DateTime startExpenseDate = endExpenseDate.AddDays(-7);
+            var weekEnding = (payroll.WeekEnding + TimeSpan.FromDays(7 - (int)payroll.WeekEnding.DayOfWeek)).Date;
+            var weekStarting = weekEnding.AddDays(-6);
 
             JEnumerable<JToken> children = expensesJson.Children();
 
@@ -106,7 +106,10 @@ namespace ahaley.AtTask
                     if (owner == null || !owner.Contains(payroll.EmployeeID))
                         return false;
                 }
-                return true;
+
+                var effectiveDate = DateTime.Parse(x.Value<string>("effectiveDate"));
+
+                return weekStarting <= effectiveDate && effectiveDate <= weekEnding;
             });
 
             return elts.ToList();

@@ -224,10 +224,11 @@ namespace ahaley.AtTask.Integration
         public void Get_Payroll_For_2014_4_6()
         {
             var adapter = new PayrollAdapter();
-            var payrollPeriod = adapter.GetPayrollWeekEnding(DateTime.Parse("2014-4-6")).ToList();
-            Payroll payroll = payrollPeriod.Single(x => x.EmployeeID == "52938133000c12a6656d813f18f95b08");
-            Assert.AreEqual(416.25, payroll.TotalMileage);
-            Assert.AreEqual(0, payroll.TotalPerDiem);
+            var payrollPeriod = adapter.GetPayrollPeriodEnding(DateTime.Parse("2014-4-6")).ToList();
+            IEnumerable<Payroll> payroll = payrollPeriod.Where(x => x.EmployeeID == "52938133000c12a6656d813f18f95b08");
+
+            var totalMileage = payroll.Sum(p => p.TotalMileage);
+            Assert.AreEqual(653.25, totalMileage);
         }
 
     }
