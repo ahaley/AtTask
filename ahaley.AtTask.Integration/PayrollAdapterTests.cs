@@ -209,5 +209,26 @@ namespace ahaley.AtTask.Integration
             Assert.AreEqual(40, payroll.TotalHours);
             Assert.AreEqual(20, payroll.SuspensionHours);
         }
+
+        [Test]
+        public void Get_Payroll_For_2014_3_30()
+        {
+            var adapter = new PayrollAdapter();
+            var payrollPeriod = adapter.GetPayrollWeekEnding(DateTime.Parse("2014-3-30")).ToList();
+            Payroll payroll = payrollPeriod.Single(x => x.EmployeeID == "52938133000c12a6656d813f18f95b08");
+            Assert.AreEqual(237, payroll.TotalMileage);
+            Assert.AreEqual(0, payroll.TotalPerDiem);
+        }
+
+        [Test]
+        public void Get_Payroll_For_2014_4_6()
+        {
+            var adapter = new PayrollAdapter();
+            var payrollPeriod = adapter.GetPayrollWeekEnding(DateTime.Parse("2014-4-6")).ToList();
+            Payroll payroll = payrollPeriod.Single(x => x.EmployeeID == "52938133000c12a6656d813f18f95b08");
+            Assert.AreEqual(416.25, payroll.TotalMileage);
+            Assert.AreEqual(0, payroll.TotalPerDiem);
+        }
+
     }
 }

@@ -106,10 +106,7 @@ namespace ahaley.AtTask
                     if (owner == null || !owner.Contains(payroll.EmployeeID))
                         return false;
                 }
-
-                var effectiveDate = DateTime.Parse(x.Value<string>("effectiveDate"));
-
-                return effectiveDate > startExpenseDate && effectiveDate <= endExpenseDate;
+                return true;
             });
 
             return elts.ToList();
