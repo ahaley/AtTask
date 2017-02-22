@@ -231,5 +231,44 @@ namespace ahaley.AtTask.Integration
             Assert.AreEqual(653.25, totalMileage);
         }
 
+
+        [Test]
+        public void Get_Payroll_For_2015_7_6_2()
+        {
+            var adapter = new PayrollAdapter();
+            var payrollPeriod = adapter.GetPayrollPeriodEnding(DateTime.Parse("2015-7-6")).ToList();
+            IEnumerable<Payroll> payroll = payrollPeriod.Where(x => x.EmployeeID == "4eb846d10008fa3559918dde4579a35b");
+
+            var totalMileage = payroll.Sum(p => p.TotalMileage);
+            Assert.AreEqual(0.0, totalMileage);
+        }
+
+
+        [Test]
+        public void Get_Payroll_For_2015_7_6()
+        {
+            var adapter = new PayrollAdapter();
+            /*
+            adapter.ApproverList = new string[] {
+                 "9d3c8120a649cebbe040007f01002438",
+                 "9d3c8120b2a0cebbe040007f01002438",
+                 "9d3c8120a636cebbe040007f01002438",
+                 "9d3c8120a63ecebbe040007f01002438",
+                 "4ea8a212000509f9dc0138f379c14bbf"
+            };*/
+
+            var periodPayroll = adapter.GetPayrollPeriodEnding(DateTime.Parse("2015-7-6")).ToList();
+            var week1 = adapter.GetPayrollWeekEnding(DateTime.Parse("2015-7-5")).ToList();
+            var week2 = adapter.GetPayrollWeekEnding(DateTime.Parse("2015-7-12")).ToList();
+
+            const string employeeName = "DeFebbo";
+            List<Payroll> ePeriod = periodPayroll.Where(x => x.Lastname == employeeName).ToList();
+
+            var eWeek1 = week1.Single(x => x.Lastname == employeeName);
+            var eWeek2 = week2.Single(x => x.Lastname == employeeName);
+
+            Assert.AreEqual(eWeek1.TotalMileage + eWeek2.TotalMileage, ePeriod[0].TotalMileage + ePeriod[1].TotalMileage);
+        }
+
     }
 }
