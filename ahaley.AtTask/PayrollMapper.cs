@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace ahaley.AtTask
 {
@@ -91,7 +92,8 @@ namespace ahaley.AtTask
             JEnumerable<JToken> children = expensesJson.Children();
 
             var elts = children.Where(x => {
-                JToken ownerToken = x.SelectToken("DE:Expense Owner");
+                JToken ownerToken = x["DE:Expense Owner"];
+                //JToken ownerToken = x.SelectToken("DE:Expense Owner");
 
                 if (ownerToken == null)
                     return false;
@@ -105,11 +107,20 @@ namespace ahaley.AtTask
                     string owner = (string)ownerToken;
                     if (owner == null || !owner.Contains(payroll.EmployeeID))
                         return false;
+                    else {
+                        Debug.WriteLine("at least once");
+                    }
                 }
 
                 var effectiveDate = DateTime.Parse(x.Value<string>("effectiveDate"));
 
-                return weekStarting <= effectiveDate && effectiveDate <= weekEnding;
+                var valid = weekStarting <= effectiveDate && effectiveDate <= weekEnding;
+
+                if (valid) {
+                    Debug.WriteLine("we're valid");
+                }
+
+                return valid;
             });
 
             return elts.ToList();
