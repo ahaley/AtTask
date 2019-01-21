@@ -78,5 +78,17 @@ namespace ahaley.AtTask
                 HireDate = user.Value<string>("entryDate").FromAtTaskDate()
             };
         }
+
+        public Project GetProject(string id)
+        {
+            JToken token  = Client.Get(ObjCode.PROJECT, id, Project.Fields);
+            JObject projectObject = token.Value<JObject>("data");
+            Project project = projectObject.ToObject<Project>();
+
+
+
+
+            return project;
+        }
     }
 }

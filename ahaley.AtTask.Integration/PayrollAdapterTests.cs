@@ -1,5 +1,6 @@
 ﻿using System;
 using ahaley.AtTask;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
@@ -9,6 +10,15 @@ namespace ahaley.AtTask.Integration
     [TestFixture]
     public class PayrollAdapterTests
     {
+        [Test]
+        public void GetProject()
+        {
+            var gateway = new Gateway();
+            Project project = gateway.GetProject("5b100909000ef303c4be94de7a4ffd82");
+
+            Assert.IsNotNull(project);
+        }
+
         [Test]
         public void Get_Payroll_For_Period()
         {

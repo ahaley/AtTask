@@ -34,17 +34,13 @@ namespace ahaley.AtTask.Tests
             
             var gateway = new Gateway(new PayrollMapper(), client.Object);
 
-
             // act
             Payroll[] result = gateway.GetTimesheetsByFilter(builder);
-
 
             // assert
             var payrollFive = result.Single(x => x.Lastname == "Five");
             Assert.AreEqual(13, payrollFive.TotalMileage);
-            //mapper.Verify(m => m.MapTimesheetsToPayrollReportItem(
         }
-
     }
 
     public class GatewayTestHelper

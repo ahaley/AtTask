@@ -8,7 +8,7 @@ namespace ahaley.AtTask
 {
     public static class AtTaskExtentionMethods
     {
-        static readonly string AtTaskDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss:fffzz00";
+        public static readonly string AtTaskDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss:fffzz00";
         static readonly string AtTaskDateFormat = "yyyy-MM-dd'T'13:27:29:999";
 
         public static string ToAtTaskDate(this DateTime dt)
